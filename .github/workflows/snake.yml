@@ -1,20 +1,8 @@
-uses: Platane/snk@v3
-with:
-    # github user name to read the contribution graph from (**required**)
-    # using action context var `github.repository_owner` or specified user
-    github_user_name: dreamtraveller1314
-
-    # list of files to generate.
-    # one file per line. Each output can be customized with options as query string.
-    #
-    #  supported options:
-    #  - palette:           A preset of color, one of [github, github-dark, github-light]
-    #  - color_snake:       Color of the snake
-    #  - color_dots:        Coma separated list of dots color.
-    #                       The first one is 0 contribution, then it goes from the low contribution to the highest.
-    #                       Exactly 5 colors are expected.
-    #  - color_background:  Color of the background (for gif only)
-  outputs: |
-      dist/github-snake.svg
-      dist/github-snake-dark.svg?palette=github-dark
-      dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9&color_background=#aaaaaa
+      - name: generate-snake-game
+        uses: Platane/snk@v3
+        with:
+          github_user_name: dreamtraveller1314
+          outputs: |
+            dist/github-snake.svg?color_snake=#FF69B4&color_dots=#FFF0F5,#FFB6C1,#FF69B4,#FF1493,#C71585
+            dist/github-snake-dark.svg?palette=github-dark&color_snake=#FF69B4&color_dots=#30122e,#702058,#9d357a,#c94da1,#f066cc
+            dist/ocean.gif?color_snake=#FF1493&color_dots=#FFF0F5,#FFB6C1,#FF69B4,#FF1493,#C71585&color_background=#1a1a1a
